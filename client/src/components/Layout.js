@@ -5,9 +5,11 @@ import Footer from './Footer';
 const Layout = ({ children }) => {
 
 
+
+
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <div style={{ padding: '20px' }}>
         {children}
       </div>
