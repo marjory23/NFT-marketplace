@@ -23,7 +23,7 @@ function Header(cartItems) {
           <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
             <img src={logo} alt="logo" width="50" height="50" className="mr-2 nav-link" />
             <span className="custom-link" style={{ marginLeft: '8px' }}>
-              Nft marketplace
+              Nft
             </span>
           </Navbar.Brand>
           <Nav className="ms-auto align-items-center">
@@ -32,9 +32,9 @@ function Header(cartItems) {
             <Link to="/contact" className="nav-link">Contact</Link>
             <Link to="/cart" className="nav-link d-flex align-items-center">
               <Bag size={20} className="mr-1" />
-              Cart ({length})
-              <span>Cart ({length})</span>
-              <span>{cartItemCount}</span>
+              Cart ({cartItems ? cartItems.length : 0})
+              <span>Cart ({cartItems ? cartItems.length : 0})</span>
+              <span>{cartItems ? cartItems.length : 0}</span>
 
             </Link>
           </Nav>

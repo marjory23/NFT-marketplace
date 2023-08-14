@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '../components/Layout';
 import NftCart from '../components/NftCart';
 
-function Cart({onBuyNow, cartItems, setCartItems, removeFromCart }) {
+function Cart({onBuyNow, cartItems, setCartItems, removeFromCart, total }) {
   return (
     <>
       <Layout />
@@ -11,6 +11,7 @@ function Cart({onBuyNow, cartItems, setCartItems, removeFromCart }) {
       cartItems={cartItems}
       setCartItems={setCartItems}
       removeFromCart={removeFromCart}
+      total={total}
       />
     </>
   )

@@ -3,7 +3,7 @@ import { Container } from 'react-bootstrap';
 
 function Main() {
   return (
-    <Container>
+    <Container className="col-md-8">
       <h2>Welcome to Risidio's NFT Marketplace</h2>
       <p>
         Step into the cutting-edge world of our NFT Marketplace, where creativity knows no bounds
