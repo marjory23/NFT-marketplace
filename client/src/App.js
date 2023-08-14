@@ -17,20 +17,23 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
 
   const handleBuyNow = (item) => {
-
     const isItemInCart = cartItems.some((cartItem) => cartItem.id === item.id);
-
-  if (!isItemInCart) {
-    setCartItems([...cartItems, item]);
-    console.log(cartItems);
-  } else {
-    console.log('Item is already in cart.');
-  }
-};
+    if (!isItemInCart) {
+      setCartItems([...cartItems, item]);
+      console.log(cartItems);
+    } else {
+      console.log('Item is already in cart.');
+    }
+  };
   //   setCartItems([...cartItems, item]);
   //   console.log(cartItems)
   // };
 
+  const removeFromCart = (id) => {
+    const updatedCartItems = cartItems.filter((item) => item.id !== id);
+    setCartItems([...updatedCartItems]);
+    console.log(cartItems)
+  };
 
   return (
     <BrowserRouter>
@@ -45,6 +48,8 @@ function App() {
         <Route path='/cart' element={<Cart
         cartItems={cartItems}
         setCartItems={setCartItems}
+        removeFromCart={removeFromCart}
+
 
         />} />
 
@@ -55,6 +60,7 @@ function App() {
         onBuyNow={handleBuyNow}
         cartItems={cartItems}
         setCartItems={setCartItems}
+        removeFromCart={removeFromCart}
         />} />
 
       </Routes>

@@ -2,14 +2,16 @@ import React from 'react';
 import Layout from '../components/Layout';
 import NftCardsList from '../components/NftCardsList';
 
-function Shop({onBuyNow, cartItems, setCartItems}) {
+function Shop({onBuyNow, cartItems, setCartItems, removeFromCart}) {
   return (
     <>
     <Layout />
     <NftCardsList
     onBuyNow={onBuyNow}
     cartItems={cartItems}
-    setCartItems={setCartItems}/>
+    setCartItems={setCartItems}
+    removeFromCart={removeFromCart}
+    />
     </>
   )
 }

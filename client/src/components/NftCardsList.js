@@ -5,7 +5,7 @@ import { Container } from 'react-bootstrap';
 
 
 
-function NftCardsList({ onBuyNow, cartItems, setCartItems }) {
+function NftCardsList({ onBuyNow, cartItems, setCartItems, removeFromCart }) {
   return (
     <Container>
       <h2 >Shop</h2>
@@ -17,6 +17,7 @@ function NftCardsList({ onBuyNow, cartItems, setCartItems }) {
             onBuyNow={onBuyNow}
             cartItems={cartItems}
             setCartItems={setCartItems}
+            removeFromCart={removeFromCart}
             />
           </div>
         ))}

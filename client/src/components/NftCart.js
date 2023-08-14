@@ -1,18 +1,18 @@
 import React, { useEffect } from 'react';
 import { Card, Box, Container, Row, Col, Button} from 'react-bootstrap';
 
-function NftCart({ cartItems, setCartItems }) {
+function NftCart({ cartItems, setCartItems, removeFromCart }) {
 
   useEffect(() => {
     console.log(cartItems)
   }, [])
 
 
-  const removeFromCart = (id) => {
-    const updatedCartItems = cartItems.filter((item) => item.id !== id);
-    setCartItems([...updatedCartItems]);
-    console.log(cartItems)
-  };
+  // const removeFromCart = (id) => {
+  //   const updatedCartItems = cartItems.filter((item) => item.id !== id);
+  //   setCartItems([...updatedCartItems]);
+  //   console.log(cartItems)
+  // };
 
   const total = cartItems.reduce((totalPrice, item) => totalPrice + item.price, 0);
 

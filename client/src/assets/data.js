@@ -47,7 +47,7 @@ export const nftData = [
     imgUrl: img04,
     creator: "Jasper Orion",
     categories: ["Art", "Ocean", "Travel"],
-    price: 10.50,
+    price: 12.15,
   },
 
   {
@@ -57,7 +57,7 @@ export const nftData = [
     imgUrl: img05,
     creator: "Luna Solari",
     categories: ["Night", "Desert", "Man"],
-    price: 25.00,
+    price: 16.30,
   },
 
   {
@@ -67,7 +67,7 @@ export const nftData = [
     imgUrl: img06,
     creator: "Xavier Vega",
     categories: ["Space", "Astronomy", "Fantasy"],
-    price: 7.25,
+    price: 7.35,
   },
 
   {
@@ -77,7 +77,7 @@ export const nftData = [
     imgUrl: img07,
     creator: "Isabella Nova",
     categories: ["Art", "Nature", "Science"],
-    price: 10.50,
+    price: 6.75,
   },
 
   {
@@ -87,7 +87,7 @@ export const nftData = [
     imgUrl: img08,
     creator: "Ethan Blake",
     categories: ["Space", "Astronomy", "Sci-Fi"],
-    price: 25.00,
+    price: 5.60,
   },
 
   {
@@ -97,7 +97,7 @@ export const nftData = [
     imgUrl: img09,
     creator: "Sophia Rayne",
     categories: ["Winter", "Night", "Scene"],
-    price: 7.25,
+    price: 8.99,
   },
 
 ];
