@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
-function NftModal({ show, handleClose, card }) {
+function NftModal({ show, handleClose, card, onBuyNow, cartItems, setCartItems }) {
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
@@ -25,7 +25,8 @@ function NftModal({ show, handleClose, card }) {
         <p>{card.desc}</p>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" >
+        <Button variant="secondary"
+        onClick={() => {onBuyNow(card)}}>
           Buy now
         </Button>
       </Modal.Footer>

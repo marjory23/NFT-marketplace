@@ -5,7 +5,7 @@ import NftModal from './NftModal';
 
 
 
-function NftCard({ card }) {
+function NftCard({ card, onBuyNow, cartItems }) {
   const [showModal, setShowModal] = useState(false);
 
   const handleOpenModal = () => setShowModal(true);
@@ -20,13 +20,15 @@ function NftCard({ card }) {
         <Card.Text>{card.price} $</Card.Text>
         <div className="d-flex justify-content-around ">
           <Button variant="primary" onClick={handleOpenModal}>Open Details</Button>
-          <Button variant="primary">Buy now</Button>
+          <Button variant="primary" onClick={() => {onBuyNow(card)}}>Buy now</Button>
         </div>
       </Card.Body>
       <NftModal
       show={showModal}
       handleClose={handleCloseModal}
-      card={card} />
+      card={card}
+      onBuyNow={onBuyNow}
+      cartItems={cartItems}/>
     </Card>
   );
 }

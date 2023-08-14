@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import logo from './risidio_logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -7,21 +8,54 @@ import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import About from './pages/About';
 import Cart from './pages/Cart';
-import CollectionDetails from'./pages/CollectionDetails';
-import Contact from'./pages/Home';
+import Contact from './pages/Contact';
+import Shop from'./pages/Shop';
 import Home from'./pages/Home';
 
 
 function App() {
+  const [cartItems, setCartItems] = useState([]);
+
+  const handleBuyNow = (item) => {
+
+    const isItemInCart = cartItems.some((cartItem) => cartItem.id === item.id);
+
+  if (!isItemInCart) {
+    setCartItems([...cartItems, item]);
+    console.log(cartItems);
+  } else {
+    console.log('Item is already in cart.');
+  }
+};
+  //   setCartItems([...cartItems, item]);
+  //   console.log(cartItems)
+  // };
+
+
   return (
     <BrowserRouter>
+      <Header cartItems={cartItems} />
       <Routes>
-        <Route path='/' element={<Header />}/>
-        <Route path='/about' element={<About />} />
-        <Route path='/cart' element={<Cart />} />
-        <Route path='/collection-details' element={<CollectionDetails />}/>
-        <Route path='/contact' element={<Contact />} />
-        <Route path='/home' element={<Home />} />
+        <Route path='/' element={<Home
+        cartItems={cartItems}
+        />}/>
+        <Route path='/about' element={<About
+        cartItems={cartItems}
+         />} />
+        <Route path='/cart' element={<Cart
+        cartItems={cartItems}
+        setCartItems={setCartItems}
+
+        />} />
+
+        <Route path='/contact' element={<Contact
+        cartItems={cartItems}
+         />} />
+        <Route path='/shop' element={<Shop
+        onBuyNow={handleBuyNow}
+        cartItems={cartItems}
+        setCartItems={setCartItems}
+        />} />
 
       </Routes>
     </BrowserRouter>
