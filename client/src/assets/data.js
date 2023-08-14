@@ -15,7 +15,7 @@ export const nftData = [
     desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam adipisci cupiditate officia, nostrum et deleniti vero corrupti facilis minima laborum nesciunt nulla error natus saepe illum quasi ratione suscipit tempore dolores. Recusandae, similique modi voluptates dolore repellat eum earum sint.",
     imgUrl: img01,
     creator: "Isabella Marlowe",
-    category: ["Art", "Fantasy", "Travel"],
+    categories: ["Art", "Fantasy", "Travel"],
     price: 10.50,
   },
 
@@ -25,7 +25,7 @@ export const nftData = [
     desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam adipisci cupiditate officia, nostrum et deleniti vero corrupti facilis minima laborum nesciunt nulla error natus saepe illum quasi ratione suscipit tempore dolores. Recusandae, similique modi voluptates dolore repellat eum earum sint.",
     imgUrl: img02,
     creator: "Oliver Valentin",
-    category: ["Games", "Literature", "Sci-Fi"],
+    categories: ["Games", "Literature", "Sci-Fi"],
     price: 25.00,
   },
 
@@ -35,7 +35,37 @@ export const nftData = [
     desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam adipisci cupiditate officia, nostrum et deleniti vero corrupti facilis minima laborum nesciunt nulla error natus saepe illum quasi ratione suscipit tempore dolores. Recusandae, similique modi voluptates dolore repellat eum earum sint.",
     imgUrl: img03,
     creator: "Luna Montague",
-    category: ["Fashion", "Astronomy", "Nature"],
+    categories: ["Fashion", "Astronomy", "Nature"],
+    price: 7.25,
+  },
+
+  {
+    id: "04",
+    title: "Colorful",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam adipisci cupiditate officia, nostrum et deleniti vero corrupti facilis minima laborum nesciunt nulla error natus saepe illum quasi ratione suscipit tempore dolores. Recusandae, similique modi voluptates dolore repellat eum earum sint.",
+    imgUrl: img01,
+    creator: "Isabella Marlowe",
+    categories: ["Art", "Fantasy", "Travel"],
+    price: 10.50,
+  },
+
+  {
+    id: "05",
+    title: "Fantasy",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam adipisci cupiditate officia, nostrum et deleniti vero corrupti facilis minima laborum nesciunt nulla error natus saepe illum quasi ratione suscipit tempore dolores. Recusandae, similique modi voluptates dolore repellat eum earum sint.",
+    imgUrl: img02,
+    creator: "Oliver Valentin",
+    categories: ["Games", "Literature", "Sci-Fi"],
+    price: 25.00,
+  },
+
+  {
+    id: "06",
+    title: "Venus",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam adipisci cupiditate officia, nostrum et deleniti vero corrupti facilis minima laborum nesciunt nulla error natus saepe illum quasi ratione suscipit tempore dolores. Recusandae, similique modi voluptates dolore repellat eum earum sint.",
+    imgUrl: img03,
+    creator: "Luna Montague",
+    categories: ["Fashion", "Astronomy", "Nature"],
     price: 7.25,
   },
 
