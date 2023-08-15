@@ -9,9 +9,7 @@ import { Link } from 'react-router-dom';
 
 function Header(cartItems) {
 
-  useEffect(() => {
-    console.log(cartItems)
-  }, [])
+ 
 
   // const cartItemCount = cartItems ? cartItems.length : 0;
   const inCart = `(${cartItems.length})`
