@@ -5,7 +5,7 @@ import { Container } from 'react-bootstrap';
 
 function AboutRisidio() {
   return (
-    <Container>
+    <Container className="col-md-8">
       <h2 >About Us</h2>
       <p>
         At Risidio's NFT Marketplace, we are passionate about redefining the way art is owned and appreciated.

@@ -7,7 +7,7 @@ import { Container } from 'react-bootstrap';
 
 function NftCardsList({ onBuyNow, cartItems, setCartItems, removeFromCart }) {
   return (
-    <Container>
+    <Container className="col-md-8">
       <h2 >Shop</h2>
       <div className="row">
         {nftData.map((nft) => (

@@ -3,7 +3,7 @@ import { Container } from 'react-bootstrap';
 
 function ContactPage() {
   return (
-    <Container>
+    <Container className="col-md-8">
       <h2 >Contact Us</h2>
       <p >
         <strong>Address:</strong>

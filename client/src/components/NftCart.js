@@ -1,27 +1,22 @@
 import React, { useEffect } from 'react';
-import { Card, Box, Container, Row, Col, Button} from 'react-bootstrap';
+import { Card, Container, Row, Col, Button} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-function NftCart({ cartItems, setCartItems, removeFromCart }) {
+
+function NftCart({ cartItems, removeFromCart, total }) {
 
   useEffect(() => {
     console.log(cartItems)
   }, [])
 
 
-  // const removeFromCart = (id) => {
-  //   const updatedCartItems = cartItems.filter((item) => item.id !== id);
-  //   setCartItems([...updatedCartItems]);
-  //   console.log(cartItems)
-  // };
-
-  const total = cartItems.reduce((totalPrice, item) => totalPrice + item.price, 0);
 
 
 
 
   return (
 
-    <Container>
+    <Container className="col-md-8">
       <h2>Cart</h2>
       {cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
@@ -29,7 +24,7 @@ function NftCart({ cartItems, setCartItems, removeFromCart }) {
         <ul>
           {cartItems.map((item) => (
             <div key={item.id}>
-              <Card style={{ marginBottom: '8px' }}>
+              <Card  style={{ marginBottom: '8px' }}>
                 <Row>
                   <Col md={4}>
                     <Card.Img
@@ -56,10 +51,12 @@ function NftCart({ cartItems, setCartItems, removeFromCart }) {
           ))}
         </ul>
       )}
-      {total ? (
+      {total>0 ? (
     <div className="d-flex justify-content-end align-items-center">
       <h3>Total: {total}</h3>
-      <Button variant="primary" style={{ marginLeft: '8px' }}>Procede to checkout</Button>
+      <Link to="/payment">
+        <Button variant="primary" style={{ marginLeft: '8px' }}>Procede to checkout</Button>
+      </Link>
     </div>
   ) : null}
 
