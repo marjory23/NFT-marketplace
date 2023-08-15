@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Card, Container, Row, Col, Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 
 function NftCart({ cartItems, removeFromCart, total }) {
 
-  
+
 
 
 
