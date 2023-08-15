@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import logo from './risidio_logo.svg';
+
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from 'react-router-dom';
 
 import { Route, Routes } from 'react-router-dom';
-import Header from './components/Header';
+
 import About from './pages/About';
 import Cart from './pages/Cart';
-import Contact from './pages/Contact';
+// import Contact from './pages/Contact';
 import Shop from'./pages/Shop';
 import Home from'./pages/Home';
 import Payment from './pages/Payment';
@@ -38,11 +38,14 @@ function App() {
   };
 
   const total = cartItems.reduce((totalPrice, item) => totalPrice + item.price, 0);
+  const formattedTotal = total.toFixed(2);
+
 
 
   return (
     <BrowserRouter>
-      <Header cartItems={cartItems} />
+
+      {/* <Header cartItems={cartItems} /> */}
       <Routes>
 
         <Route path='/' element={<Home
@@ -57,12 +60,12 @@ function App() {
         cartItems={cartItems}
         setCartItems={setCartItems}
         removeFromCart={removeFromCart}
-        total={total}
+        total={formattedTotal}
         />} />
 
-        <Route path='/contact' element={<Contact
+        {/* <Route path='/contact' element={<Contact
         cartItems={cartItems}
-         />} />
+         />} /> */}
 
         <Route path='/shop' element={<Shop
         onBuyNow={handleBuyNow}
@@ -72,7 +75,7 @@ function App() {
         />} />
 
         <Route path='/payment' element={<Payment
-        total={total}
+        total={formattedTotal}
          />} />
 
         <Route path='/success' element={<Success

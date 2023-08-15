@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Card, Box, Container, Row, Col, Button} from 'react-bootstrap';
+import { Card, Container, Row, Col, Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 
@@ -51,7 +51,7 @@ function NftCart({ cartItems, removeFromCart, total }) {
           ))}
         </ul>
       )}
-      {total ? (
+      {total>0 ? (
     <div className="d-flex justify-content-end align-items-center">
       <h3>Total: {total}</h3>
       <Link to="/payment">
