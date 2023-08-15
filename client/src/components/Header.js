@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import logo from '../risidio_logo.svg';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 function Header(cartItems) {
 
- 
+
 
   // const cartItemCount = cartItems ? cartItems.length : 0;
   const inCart = `(${cartItems.length})`

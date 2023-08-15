@@ -5,11 +5,7 @@ import { Link } from 'react-router-dom';
 
 function NftCart({ cartItems, removeFromCart, total }) {
 
-  useEffect(() => {
-    console.log(cartItems)
-  }, [])
-
-
+  
 
 
 
