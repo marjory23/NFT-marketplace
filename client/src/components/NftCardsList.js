@@ -20,7 +20,7 @@ function NftCardsList({ onBuyNow, cartItems, setCartItems, removeFromCart }) {
 
   useEffect(() => {
     console.log(data)
-  }, [])
+  }, [data])
 
   const resetShop = () => {
     dispatch(updateData({ data: nftData}))
