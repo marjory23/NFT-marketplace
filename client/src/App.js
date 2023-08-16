@@ -21,7 +21,7 @@ function App() {
 
   useEffect(()=>{
     dispatch(emptyCart())
-  }, [])
+  }, [dispatch])
 
 
   const total = cart.reduce((totalPrice, item) => totalPrice + item.price, 0);
