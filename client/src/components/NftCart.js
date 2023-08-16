@@ -1,19 +1,26 @@
 import React from 'react';
 import { Card, Container, Row, Col, Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeFromCart } from '../store/cartSlice';
 
 
-function NftCart({ cartItems, removeFromCart, total }) {
+function NftCart({
+
+  total }) {
+
+  const dispatch = useDispatch();
+  const cart = useSelector((state)=> state.cart.cartData)
 
   return (
 
     <Container className="col-md-8">
       <h2>Cart</h2>
-      {cartItems.length === 0 ? (
+      {cart.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
         <ul>
-          {cartItems.map((item) => (
+          {cart.map((item) => (
             <div key={item.id}>
               <Card  style={{ marginBottom: '8px' }}>
                 <Row>
@@ -33,7 +40,7 @@ function NftCart({ cartItems, removeFromCart, total }) {
                   <Col md={4}>
                     <Card.Body className="d-flex justify-content-end align-items-end">
                     <Button variant="primary"
-                    onClick={() => {removeFromCart(item.id)}} >Remove from cart</Button>
+                    onClick={() => {dispatch(removeFromCart(item.id))}} >Remove from cart</Button>
                     </Card.Body>
                   </Col>
                 </Row>

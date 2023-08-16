@@ -1,9 +1,14 @@
 import React from 'react';
 import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { emptyCart } from '../store/cartSlice';
 
 
 function PaymentPage({ total, setCartItems }) {
+
+  const dispatch = useDispatch()
+
   return (
     <Container className="col-md-8">
       <h2>Payment Information</h2>
@@ -54,7 +59,7 @@ function PaymentPage({ total, setCartItems }) {
       <div className="mt-4 d-flex justify-content-end align-items-center">
         <Link to="/success">
         <Button variant="primary" size="lg"
-        onClick={() => setCartItems([])}>Pay now {total}$</Button>
+        onClick={() => dispatch(emptyCart())}>Pay now {total}$</Button>
         </Link>
       </div>
     </Container>

@@ -8,7 +8,7 @@ import { updateBrowse } from '../store/browseSlice';
 
 
 
-function NftCardsList({ onBuyNow, cartItems, setCartItems, removeFromCart }) {
+function NftCardsList() {
 
   const data = useSelector((state) => state.data.data);
   const browse = useSelector((state) => state.browse)
@@ -34,15 +34,11 @@ function NftCardsList({ onBuyNow, cartItems, setCartItems, removeFromCart }) {
         <Col key={nft.id}>
           <NftCard
              card={nft}
-             onBuyNow={onBuyNow}
-             cartItems={cartItems}
-             setCartItems={setCartItems}
-             removeFromCart={removeFromCart}
              />
       </Col>
     ))}
     </Row>
-    {data.length<1 && <h3 className="mt-4">No results.</h3>}
+    {data.length<1 && <h5 className="mt-4">No results.</h5>}
     {browse && <Button className="mt-2"
     onClick={resetShop}>See all</Button>}
     </Container>

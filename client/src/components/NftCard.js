@@ -1,18 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { useDispatch, useSelector } from 'react-redux';
 import NftModal from './NftModal';
+import { addToCart, removeFromCart } from '../store/cartSlice';
 
 
 
-function NftCard({ card, onBuyNow, cartItems, removeFromCart }) {
+function NftCard({ card }) {
+
   const [showModal, setShowModal] = useState(false);
-
+  const dispatch = useDispatch();
+  const cart = useSelector((state)=> state.cart.cartData)
 
   const handleOpenModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
 
-  const isCardInCart = cartItems.some(item => item.id === card.id);
+  const isCardInCart = cart.some(item => item.id === card.id);
 
   return (
     <Card>
@@ -26,11 +30,11 @@ function NftCard({ card, onBuyNow, cartItems, removeFromCart }) {
           {!isCardInCart? <Button
             variant="primary"
             onClick={() => {
-              onBuyNow(card);
+              dispatch(addToCart(card))
             }}>Buy now</Button> : <Button
             variant="primary"
             onClick={() => {
-              removeFromCart(card.id);
+              dispatch(removeFromCart(card.id))
             }}>Remove</Button>}
         </div>
       </Card.Body>
@@ -38,9 +42,8 @@ function NftCard({ card, onBuyNow, cartItems, removeFromCart }) {
       show={showModal}
       handleClose={handleCloseModal}
       card={card}
-      onBuyNow={onBuyNow}
-      cartItems={cartItems}
-      removeFromCart={removeFromCart}/>
+      isCardInCart={isCardInCart}
+      />
     </Card>
   );
 }
