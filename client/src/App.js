@@ -76,6 +76,7 @@ function App() {
 
         <Route path='/payment' element={<Payment
         total={formattedTotal}
+        setCartItems={setCartItems}
          />} />
 
         <Route path='/success' element={<Success

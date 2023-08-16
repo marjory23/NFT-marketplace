@@ -8,9 +8,6 @@ import { updateBrowse } from '../store/browseSlice';
 
 
 
-
-
-
 function NftCardsList({ onBuyNow, cartItems, setCartItems, removeFromCart }) {
 
   const data = useSelector((state) => state.data.data);
