@@ -8,7 +8,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import About from './pages/About';
 import Cart from './pages/Cart';
-// import Contact from './pages/Contact';
+import Contact from './pages/Contact';
 import Shop from'./pages/Shop';
 import Home from'./pages/Home';
 import Payment from './pages/Payment';
@@ -63,9 +63,9 @@ function App() {
         total={formattedTotal}
         />} />
 
-        {/* <Route path='/contact' element={<Contact
+        <Route path='/contact' element={<Contact
         cartItems={cartItems}
-         />} /> */}
+         />} />
 
         <Route path='/shop' element={<Shop
         onBuyNow={handleBuyNow}

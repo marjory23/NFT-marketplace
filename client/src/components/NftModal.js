@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
-function NftModal({ show, handleClose, card, onBuyNow, cartItems, setCartItems, removeFromCart }) {
+function NftModal({ show, handleClose, card, onBuyNow, cartItems, removeFromCart }) {
 
   const isCardInCart = cartItems.some(item => item.id === card.id);
 
@@ -37,10 +37,6 @@ function NftModal({ show, handleClose, card, onBuyNow, cartItems, setCartItems, 
             onClick={() => {
               removeFromCart(card.id);
             }}>Remove</Button>}
-        {/* <Button variant="secondary"
-        onClick={() => {onBuyNow(card)}}>
-          Buy now
-        </Button> */}
       </Modal.Footer>
     </Modal>
   );

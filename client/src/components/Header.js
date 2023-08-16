@@ -1,11 +1,71 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from '../risidio_logo.svg';
 import { Container, Navbar, Nav, Form, Row, Col, Button } from 'react-bootstrap';
-import { Bag, Search } from 'react-bootstrap-icons';
+import { Bag } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
+import { nftData } from '../assets/data';
+
+import { useSelector, useDispatch } from "react-redux";
+import { updateData } from '../store/dataSlice';
+import { updateBrowse } from '../store/browseSlice';
+import { useNavigate } from 'react-router-dom';
+
+
+
 
 
 function Header(cartItems) {
+
+  const [searchWord, setSearchWord] = useState('');
+
+  const data = useSelector((state) => state.data.data);
+  const browse = useSelector((state) => state.browse)
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const filtered = nftData.filter((item) => {
+      const lowerSearchWord = searchWord.toLowerCase();
+
+      const titleMatch = item.title.toLowerCase().includes(lowerSearchWord) &&
+        item.title.toLowerCase().split(' ').some(word => word === lowerSearchWord);
+
+      const creatorMatch = item.creator.toLowerCase().includes(lowerSearchWord) &&
+        item.creator.toLowerCase().split(' ').some(word => word === lowerSearchWord);
+
+      const categoryMatch = item.categories.some(category =>
+        category.toLowerCase() === lowerSearchWord
+      );
+
+      return titleMatch || creatorMatch || categoryMatch;
+    });
+
+    if (filtered.length > 0) {
+      dispatch(updateData({ data: filtered}));
+      dispatch(updateBrowse(true));
+      setSearchWord('');
+      navigate('/shop');
+
+      console.log(filtered)
+      console.log(searchWord)
+
+    } else {
+      dispatch(updateData({ data: []}));
+      dispatch(updateBrowse(true));
+      setSearchWord('');
+      navigate('/shop');
+
+
+    }
+  };
+
+  const resetShop = () => {
+    dispatch(updateData({ data: nftData}))
+    dispatch(updateBrowse(false))
+  }
 
 
 
@@ -33,26 +93,19 @@ function Header(cartItems) {
                   placeholder="Search"
                   className="me-2"
                   aria-label="Search"
+                  value={searchWord}
+                  onChange={(e) => setSearchWord(e.target.value)}
+
                 />
-                <Button variant="outline-success">Search</Button>
-              </Form>
-              <Form inline>
-                <Row>
-                  <Col xs="auto">
-                    <Form.Control
-                      type="text"
-                      placeholder="Search"
-                      className=" mr-sm-2"
-                    />
-                  </Col>
-                  <Col xs="auto">
-                    <Button><Search size={20} /></Button>
-                  </Col>
-                </Row>
+                <Button variant="outline-success"
+                onClick={handleSubmit}
+                >Search</Button>
               </Form>
               <Link to="/about" className="nav-link">About</Link>
-              <Link to="/shop" className="nav-link">Shop</Link>
-              {/* <Link to="/contact" className="nav-link">Contact</Link> */}
+              <Link to="/shop" className="nav-link"
+              onClick={resetShop}
+              >Shop</Link>
+              <Link to="/contact" className="nav-link">Contact</Link>
               <Link to="/cart" className="nav-link d-flex align-items-center">
                 <Bag size={20} className="mr-1" />
                 Cart {cartItems.length>0? inCart : null}

@@ -15,9 +15,7 @@ function NftCard({ card, onBuyNow, cartItems, removeFromCart }) {
   const isCardInCart = cartItems.some(item => item.id === card.id);
 
   return (
-    <Card 
-    // style={{ width: '18rem' }}
-    >
+    <Card>
       <Card.Img variant="top" src={card.imgUrl} style={{ height: '200px', objectFit: 'cover' }} />
       <Card.Body>
         <Card.Title>{card.title}</Card.Title>
