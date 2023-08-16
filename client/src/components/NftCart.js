@@ -5,11 +5,6 @@ import { Link } from 'react-router-dom';
 
 function NftCart({ cartItems, removeFromCart, total }) {
 
-
-
-
-
-
   return (
 
     <Container className="col-md-8">
