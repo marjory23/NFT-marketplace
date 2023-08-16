@@ -8,7 +8,7 @@ function Payment({ total, setCartItems }) {
     <Layout />
     <PaymentPage
     total={ total }
-    setCartItems={ setCartItems } />
+    />
 
     </>
   )

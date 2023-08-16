@@ -15,10 +15,6 @@ function Shop({onBuyNow, cartItems, setCartItems, removeFromCart}) {
     <>
     <Layout />
     <NftCardsList
-    onBuyNow={onBuyNow}
-    cartItems={cartItems}
-    setCartItems={setCartItems}
-    removeFromCart={removeFromCart}
     />
     </>
   )

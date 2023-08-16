@@ -4,19 +4,20 @@ import { Container, Navbar, Nav, Form, Button } from 'react-bootstrap';
 import { Bag } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
 import { nftData } from '../assets/data';
-
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateData } from '../store/dataSlice';
 import { updateBrowse } from '../store/browseSlice';
 import { useNavigate } from 'react-router-dom';
 
 
-function Header(cartItems) {
+function Header() {
 
   const [searchWord, setSearchWord] = useState('');
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const cart = useSelector((state)=> state.cart.cartData)
 
 
   const handleSubmit = (e) => {
@@ -62,10 +63,8 @@ function Header(cartItems) {
     dispatch(updateBrowse(false))
   }
 
-
-
-  // const cartItemCount = cartItems ? cartItems.length : 0;
-  const inCart = `(${cartItems.length})`
+  const inCart = `(${cart.length})`;
+  const emptyCart = `()`;
 
   return (
     <>
@@ -103,9 +102,7 @@ function Header(cartItems) {
               <Link to="/contact" className="nav-link">Contact</Link>
               <Link to="/cart" className="nav-link d-flex align-items-center">
                 <Bag size={20} className="mr-1" />
-                Cart {cartItems.length>0? inCart : null}
-                {/* <span>Cart ({cartItems ? cartItems.length : 0})</span>
-                <span>{cartItems ? cartItems.length : 0}</span> */}
+                Cart {cart.length>0? inCart : emptyCart}
 
               </Link>
             </Nav>

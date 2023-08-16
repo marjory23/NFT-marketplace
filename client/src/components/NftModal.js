@@ -1,10 +1,13 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import { useDispatch } from 'react-redux';
+import { addToCart, removeFromCart } from '../store/cartSlice';
 
-function NftModal({ show, handleClose, card, onBuyNow, cartItems, removeFromCart }) {
+function NftModal({ show, handleClose, card,
+  isCardInCart }) {
 
-  const isCardInCart = cartItems.some(item => item.id === card.id);
+  const dispatch = useDispatch();
 
   return (
     <Modal show={show} onHide={handleClose}>
@@ -31,11 +34,11 @@ function NftModal({ show, handleClose, card, onBuyNow, cartItems, removeFromCart
        {!isCardInCart? <Button
             variant="primary"
             onClick={() => {
-              onBuyNow(card);
+              dispatch(addToCart(card))
             }}>Buy now</Button> : <Button
             variant="primary"
             onClick={() => {
-              removeFromCart(card.id);
+              dispatch(removeFromCart(card.id))
             }}>Remove</Button>}
       </Modal.Footer>
     </Modal>
