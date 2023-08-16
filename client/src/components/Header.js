@@ -1,25 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import logo from '../risidio_logo.svg';
-import { Container, Navbar, Nav, Form, Row, Col, Button } from 'react-bootstrap';
+import { Container, Navbar, Nav, Form, Button } from 'react-bootstrap';
 import { Bag } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
 import { nftData } from '../assets/data';
 
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { updateData } from '../store/dataSlice';
 import { updateBrowse } from '../store/browseSlice';
 import { useNavigate } from 'react-router-dom';
-
-
-
 
 
 function Header(cartItems) {
 
   const [searchWord, setSearchWord] = useState('');
 
-  const data = useSelector((state) => state.data.data);
-  const browse = useSelector((state) => state.browse)
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
