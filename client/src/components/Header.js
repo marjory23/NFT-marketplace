@@ -26,11 +26,9 @@ function Header() {
     const filtered = nftData.filter((item) => {
       const lowerSearchWord = searchWord.toLowerCase();
 
-      const titleMatch = item.title.toLowerCase().includes(lowerSearchWord) &&
-        item.title.toLowerCase().split(' ').some(word => word === lowerSearchWord);
+      const titleMatch = item.title.toLowerCase().split(' ').some(word => word === lowerSearchWord);
 
-      const creatorMatch = item.creator.toLowerCase().includes(lowerSearchWord) &&
-        item.creator.toLowerCase().split(' ').some(word => word === lowerSearchWord);
+      const creatorMatch = item.creator.toLowerCase().split(' ').some(word => word === lowerSearchWord);
 
       const categoryMatch = item.categories.some(category =>
         category.toLowerCase() === lowerSearchWord
@@ -64,7 +62,7 @@ function Header() {
   }
 
   const inCart = `(${cart.length})`;
-  const emptyCart = `()`;
+  const emptyCart = `( )`;
 
   return (
     <>
